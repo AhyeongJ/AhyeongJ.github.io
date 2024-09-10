@@ -1,0 +1,105 @@
+---
+title: "Logistic Regression Practice"
+author: Ahyeong Jeong
+date: "2024-09-10"
+categories: [LS Homework]
+---
+```{python}
+import numpy as np
+import pandas as pd
+```
+
+## 문제 1
+
+```{python}
+df = pd.read_csv('../_data/leukemia_remission.txt', delimiter='\t')
+
+import statsmodels.api as sm
+model = sm.formula.logit("REMISS ~ CELL + SMEAR + INFIL + LI + BLAST + TEMP", data = df).fit()
+print(model.summary())
+```
+
+## 문제 2
+유의수준이 0.05라고 할 때, LLR p-value가 0.04670은 0.05보다 작으므로 유의하다고 할 수 있다. 
+
+
+## 문제 3
+유의수준 0.2 하에서 각 변수의 p-value값을 살펴 볼 때, LI의 p값이 0.101이고 TEMP의 p값이 0.198로, 두 변수가 유의하다고 할 수 있다. 
+
+
+## 문제 4 
+
+```{python}
+odds = np.exp(64.2581 + 30.8301 * 0.65 + 24.6863 * 0.45 -24.9745 * 0.55 + 4.3605 * 1.2 - 0.0115 * 1.1 - 100.1734 * 0.9)
+print("odds : ", f"{odds}")
+```
+
+
+## 문제 5: p_hat 구하기
+
+```{python}
+p_hat = odds / (1 + odds)
+print("p_hat: ", f"{p_hat}")
+```
+
+
+## 문제 6
+TEMP의 계수는 -100.1734이다. 
+
+```{python}
+odds_ratio = np.exp(-100.1734) 
+print("Odds ratio : ", f"{odds_ratio}")
+```
+오즈비 거의 0 <bp>
+np.exp(-100.1734)은 오즈비로 TEMP가 1단위 증가할 때 마다 백혈병 관측이 안됨에 대한 오즈가 오즈비만큼 감소하는 것이다. <bp>
+TEMP 변수의 계수가 -100.1734이고, 이를 지수화한 값이 거의 0에 가까운 경우, TEMP가 증가할수록 백혈병 치료 성공 가능성(REMISS = 1)이 급격히 감소한다는 것을 의미합니다. 즉, TEMP의 값이 높아질수록 백혈병 세포가 관측되지 않을 확률이 매우 낮아진다는 것을 나타냅니다.<bp>
+따라서 TEMP 변수는 매우 큰 음의 영향을 미치는 중요한 변수입니다.
+
+##  문제 7. CELL 변수의 99% 오즈비에 대한 신뢰구간을 구하시오.
+
+```{python}
+from scipy.stats import norm
+# Beta__cell +- z0.005 * std_err
+z005 = norm.ppf(0.995)  # 2.58
+left = 30.8301 - 2.58 * 52.135  # -103.678
+right = 30.8301 + 2.58 * 52.135  # 165.338
+print("Confidence Interval: ", "f{left}", "f{right}")
+```
+
+
+
+## 문제 8. 주어진 데이터에 대하여 로지스틱 회귀 모델의 예측 확률을 구한 후, 50% 이상인 경우 1로 처리하여, 혼동 행렬를 구하시오.
+
+```{python}
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import ConfusionMatrixDisplay
+x = df.drop('REMISS', axis = 1)
+pred_y = model.predict(x)
+pred_y = pred_y.to_frame(name = "pred_y")
+pred_y['class'] = np.where(pred_y["pred_y"] >= 0.5, 1, 0)
+conf_mat1 = confusion_matrix(df['REMISS'], 
+                            pred_y['class'],
+                            labels = [1, 0])
+
+p1 = ConfusionMatrixDisplay(confusion_matrix = conf_mat1,
+                           display_labels = ("not_observed", "observed"))
+p1.plot(cmap = "Blues")
+```
+
+
+## 문제 9 
+
+```{python}
+from sklearn.metrics import accuracy_score
+accuracy = accuracy_score(df['REMISS'], pred_y['class'])
+print("accuracy: ", f"{accuracy:.3f}") 
+```
+ 
+
+
+## 문제 10
+```{python}
+from sklearn.metrics import f1_score
+f1 = f1_score(df['REMISS'], pred_y['class'])
+print("F1 score: ", f"{f1:.3f}")
+```
