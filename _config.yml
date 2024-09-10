@@ -115,7 +115,7 @@ analytics:
 author:
   name             : "Ahyeong Jeong"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am learning Economics and Bigdata Analysis"
+  bio              : "데이터분석을 배우고 있는 정아영입니다."
   location         : "Busan, South Korea"
   email            :
   links:
