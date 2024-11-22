@@ -5,8 +5,7 @@ description: "데이터 분석가가 되는 것을 목표로 공부하는 글을
 logo: # 120x120 px default image used for Twitter summary card
 teaser: # 400x250 px default teaser image used in image archive grid
 locale: en
-url: http://localhost:4000
-url: https://AhyeongJ.github.io
+url: 
 feed:
   path: atom.xml
 

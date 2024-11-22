@@ -1,4 +1,15 @@
-# Footer navigation links
-
-- title:
-  url:
+# _data/footer.yml
+- title: "Home"
+  url: "/"
+- title: "About"
+  url: "/about/"
+- title: "Blog"
+  url: "/blog/"
+- title: "Study"
+  url: "/study/"
+- title: "Contact"
+  url: "/contact/"
+- title: "GitHub"
+  url: "https://github.com/your-username"
+- title: "Twitter"
+  url: "https://twitter.com/your-username"
