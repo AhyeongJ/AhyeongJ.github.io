@@ -93,3 +93,5 @@ $P(E) = P(E \cap F^c) + P(EF) \rightarrow P(E \cap F^c) = P(E) - P(EF)$
 $P(F) = P(F \cap E^c) + P(FE) \rightarrow P(F \cap E^c) = P(F) - P(FE)$   
 $P(E \cap F) = (P(E) - P(EF)) + P(EF) + (P(F)-P(FE))$  
             $= P(E) + P(F) - P(EF)$
+
+
