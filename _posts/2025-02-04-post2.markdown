@@ -4,13 +4,11 @@ title:  "[기초통계학] 확률의 공리"
 date:   2025-02-04
 categories: statistics
 ---
-
 <script type="text/javascript" async
   src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script type="text/javascript" async
   id="MathJax-script"
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 
 안녕하세요! ADP를 준비하면서 통계학부터 데이터마이닝 영역까지 블로그 글을 써보려고 합니다.   
 
