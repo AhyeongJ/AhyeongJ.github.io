@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-    
+
     <!-- CSS 스타일 유지 -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
-    <!-- MathJax 추가 (LaTeX 수식 렌더링) -->
-    <script type="text/javascript" async
-        src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script type="text/javascript" async
-        id="MathJax-script"
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- KaTeX 추가 (LaTeX 수식 렌더링) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
 </head>
 <body>
     <header>
@@ -27,7 +26,7 @@
     </header>
 
     <main>
-        {{ content }} <!-- 여기에 본문이 들어감 -->
+        {{ content }} <!-- 블로그 글 내용이 표시되는 부분 -->
     </main>
 
     <footer>
