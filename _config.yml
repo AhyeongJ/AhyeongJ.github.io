@@ -30,14 +30,16 @@ plugins:
 
 
 theme: minima
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  input: GFM
 permalink: /blog/:title/
 
 include:
   - assets
 
-markdown: kramdown
-kramdown:
-  math_engine: mathjax
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
