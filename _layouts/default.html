@@ -5,27 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     
+    <!-- CSS 스타일 유지 -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+    <!-- MathJax 추가 (LaTeX 수식 렌더링) -->
     <script type="text/javascript" async
         src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script type="text/javascript" async
         id="MathJax-script"
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
     <header>
         <h1>{{ site.title }}</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                <li><a href="{{ '/about' | relative_url }}">About</a></li>
+            </ul>
+        </nav>
     </header>
-    
+
     <main>
-        {{ content }}
+        {{ content }} <!-- 여기에 본문이 들어감 -->
     </main>
-    
+
     <footer>
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }}. All rights reserved.</p>
     </footer>
 </body>
 </html>
-
-  
