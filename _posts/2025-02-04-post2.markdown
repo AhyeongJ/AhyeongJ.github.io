@@ -1,92 +1,95 @@
 ---
 layout: post
-title:  "[기초통계학] 확률의 공리"
-date:   2025-02-04
+title: "[기초통계학] 확률의 공리"
+date: 2025-02-04
 categories: statistics
 ---
-<script type="text/javascript" async
-  src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script type="text/javascript" async
-  id="MathJax-script"
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-안녕하세요! ADP를 준비하면서 통계학부터 데이터마이닝 영역까지 블로그 글을 써보려고 합니다.   
+안녕하세요! ADP를 준비하면서 통계학부터 데이터마이닝 영역까지 블로그 글을 써보려고 합니다.
 
-저번 게시글에서는 모집단과 표본에 대해서 간략히 알아보고 표본을 추출하는 방법에 대해 다뤄보았습니다. 
+저번 게시글에서는 모집단과 표본에 대해서 간략히 알아보고 표본을 추출하는 방법에 대해 다뤄보았습니다.
 
-이번 게시글부터 표본을 바탕으로 모집단에 대해 추론할 때 논리적 근거가 되는 확률에 대해서 알아보려고 합니다.   
+이번 게시글부터 표본을 바탕으로 모집단에 대해 추론할 때 논리적 근거가 되는 확률에 대해서 알아보려고 합니다.  
 <br>
 
-*****
+---
 
 <br>
 
 ### 📌 **표본공간과 사건**
+
 #### 📖 **랜덤 실험 Random Experiment**
+
 1. 결과의 경우의 수가 여러개이고
 2. 어떠한 결과가 나올 지 예측불가능하고
-3. 결과가 나올 수 있는 가능성을 수치화할 수 있는 실험    
+3. 결과가 나올 수 있는 가능성을 수치화할 수 있는 실험
 
-ex) 동전을 1번 던지는 행위, 주사위를 2개 던지는 행위 등 
+ex) 동전을 1번 던지는 행위, 주사위를 2개 던지는 행위 등
 
 #### 📖 **표본공간 Sample Space**
-랜덤실험으로부터 나올 수 있는 모든 결과값들의 집합(S) 
+
+랜덤실험으로부터 나올 수 있는 모든 결과값들의 집합(S)
 
 #### 📖 **이산형 표본공간 Discrete Sample Space**
-ex1) 동전 1번 던진 결과 : S = {Head, 
-Tail}      
+
+ex1) 동전 1번 던진 결과 : S = {Head,
+Tail}  
 ex2) 야구장에 들어가는 사람 수 세기 : S = {0, 1, 2, ...}
 
 #### 📖 **연속형 표본공간 Continuous Sample Space**
-ex1) 0부터 100까지의 실수: $S= \{x \mid 0 \leq x \}$       
+
+ex1) 0부터 100까지의 실수: $S= \{x \mid 0 \leq x \}$  
 ex2) 전구의 수명시간 : $S = \{ t \mid 0 \leq t \leq 100 \}$
 ex3) 반지름 2인 원 위의 점: $S =\{ (x, y) \mid x^2 + y^2 = 4 \}$
 
-
 #### 📖 **사건 Event**
-표본공간의 부분집합    
-ex1) 동전에서 앞면이 나오는 경우: {head}    
-ex2) 공정에서 10개 불량품 제조될 때까지 제조된 제품 수가 20 이하인 경우: {10, 11, 12, ..., 20}   
 
+표본공간의 부분집합  
+ex1) 동전에서 앞면이 나오는 경우: {head}  
+ex2) 공정에서 10개 불량품 제조될 때까지 제조된 제품 수가 20 이하인 경우: {10, 11, 12, ..., 20}
 
-예시를 통해 표본공간과 사건에 대해서 알아보았습니다.   
+예시를 통해 표본공간과 사건에 대해서 알아보았습니다.  
 다음은 확률의 공리에 대해서 알아보기 위해 집합의 계산을 알아보고, 확률의 공리에 대해 기술해보려고 합니다.
 
-*****
+---
 
 <br>
 
 ### 📌 **확률의 공리와 성질**
 
 #### 📖 **사건의 연산**
-**합사건**: $A \cup B$   
-**곱사건**: $A \cap B$   
-**여사건**: $A^c$ 
+
+**합사건**: $A \cup B$  
+**곱사건**: $A \cap B$  
+**여사건**: $A^c$
 **상호배타 Mutually Exclusive**: $A \cap B = \varnothing$
 
-곱사건의 경우 $A \cap B$는 $AB$로 나타낼 수 있습니다. 
+곱사건의 경우 $A \cap B$는 $AB$로 나타낼 수 있습니다.
 
 #### 📖 **집합의 법칙**
+
 **교환법칙**: $E \cup F = F \cup E,  EF = FE$
 **결합법칙**: $(E \cup F) \cup G = E \cup (F \cup G), (EF)G = E(FG)$
 **분배법칙**: $(E \cup F)G = (EG) \cup (FG)$, $(EF) \cup G = (E \cup G)(F \cup G)$
 **드 모르간 법칙**: $(E \cup F)^c = E^c \cap F^c, (E \cap F)^c = E^c \cup F^c$
 
-#### 📖 **확률의 공리** ⭐⭐⭐ 
+#### 📖 **확률의 공리** ⭐⭐⭐
+
 1. $0 \leq P(E) \leq 1$
 2. P(S) = 1
 3. 모든 i, j에 대해서 $E_i \cap E_j = \varnothing$ 이면, $P(\bigcup_{i=1}^{n} E_i) = \sum_{i=1}^{n} P(E_i)$
-   
+
 다음의 세가지를 만족할 때, P(A)를 사건 A의 확률이라고 합니다.
 
 #### 📖 **확률의 성질**
-1. <span style="color:red"> $P(E^c) = 1 - P(E)$ </span>
-   
+
+1.  <span style="color:red"> $P(E^c) = 1 - P(E)$ </span>
     $S =E^c \cup E, E^c \cap E = \varnothing$
-<br>
-2. <span style="color:red"> $E \subset F$ 이면 $P(E) \leq P(F)$ 
-<p align="left"> </span>
-<img src="../../image/EsubsetF.png" alt="EsubsetF" height ="150" width="150">
+    <br>
+2.  <span style="color:red"> $E \subset F$ 이면 $P(E) \leq P(F)$
+</span>
+<p align="left">
+<img src="https://github.com/AhyeongJ/AhyeongJ.github.io/blob/main/image/EsubsetF.png?raw=true" alt="EsubsetF" height ="150" width="150">
 </p>
 
 $F = E \cup (F \cap E^C), F \cap(F \cap E^c) = \varnothing$
@@ -94,10 +97,8 @@ $\rightarrow P(F) = P(E) + P(F \cap E^c)(\geq 0)$
 $\rightarrow P(F) \geq P(E)$
 
 3. <span style="color:red"> $P(E \cup F) = P(E) + P(F) - P(EF)$ </span>
-$P(E\cup F) = P(E \cap F^c) + P(E \cap F) + P(F \cap E^c)$
-$P(E) = P(E \cap F^c) + P(EF) \rightarrow P(E \cap F^c) = P(E) - P(EF)$   
-$P(F) = P(F \cap E^c) + P(FE) \rightarrow P(F \cap E^c) = P(F) - P(FE)$   
-$P(E \cap F) = (P(E) - P(EF)) + P(EF) + (P(F)-P(FE))$  
-            $= P(E) + P(F) - P(EF)$
-
-
+   $P(E\cup F) = P(E \cap F^c) + P(E \cap F) + P(F \cap E^c)$
+   $P(E) = P(E \cap F^c) + P(EF) \rightarrow P(E \cap F^c) = P(E) - P(EF)$  
+   $P(F) = P(F \cap E^c) + P(FE) \rightarrow P(F \cap E^c) = P(F) - P(FE)$  
+   $P(E \cap F) = (P(E) - P(EF)) + P(EF) + (P(F)-P(FE))$  
+    $= P(E) + P(F) - P(EF)$
